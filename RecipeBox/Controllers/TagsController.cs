@@ -3,6 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using RecipeBox.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using RecipeBox.Models;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace RecipeBox.Controllers
 {
@@ -70,5 +79,29 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    public ActionResult AddRecipe(int id)
+    {
+        var thisTag = _db.Tags.FirstOrDefault(tag => tag.TagId == id);
+        ViewBag.RecipeId = new SelectList(_db.Recipes, "RecipeId", "Name");
+        return View(thisTag);
+    }
+    [HttpPost]
+    public ActionResult AddRecipe(Tag tag, int RecipeId)
+    {
+        if (RecipeId != 0)
+        {
+          _db.RecipeTag.Add(new RecipeTag() { RecipeId = RecipeId, TagId = tag.TagId });
+          _db.SaveChanges();
+        }
+        return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public ActionResult DeleteTag(int joinId)
+    {
+        var joinEntry = _db.RecipeTag.FirstOrDefault(entry => entry.RecipeTagId == joinId);
+        _db.RecipeTag.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }   
   }
 }
