@@ -1,0 +1,21 @@
+@model ToDoList.Models.Recipe
+
+<h4>Add a new Recipe</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Ingredients)
+    @Html.TextBoxFor(model => model.Ingredients)
+
+    @Html.LabelFor(model => model.Instructions)
+    @Html.TextBoxFor(model => model.Instructions)
+
+    @Html.Label("Select Tag")
+    @Html.DropDownList("TagId")
+
+    <input type="submit" value="Add new Recipe" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all Recipes", "Index")</p>
