@@ -1,21 +1,24 @@
 @model RecipeBox.Models.Recipe
 
+<div class="container">
 <h4>Add a new Recipe</h4>
 
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { required = "required" })<br>
 
-    @Html.LabelFor(model => model.Ingredients)
-    @Html.TextBoxFor(model => model.Ingredients)
+    <br>@Html.LabelFor(model => model.Ingredients)
+    @Html.TextAreaFor(model => model.Ingredients, new { required = "required", @class = "form-control"  })<br>
 
-    @Html.LabelFor(model => model.Instructions)
-    @Html.TextBoxFor(model => model.Instructions)
+    <br>@Html.LabelFor(model => model.Instructions)
+    @Html.TextAreaFor(model => model.Instructions, new { required = "required", @class = "form-control" })<br>
 
-    @Html.Label("Select Tag")
-    @Html.DropDownList("TagId")
+    <br>@Html.Label("Select Tag")
+    @Html.DropDownList("TagId")<br>
 
-    <input type="submit" value="Add new Recipe" class="btn btn-default" />
+    <br><input type="submit" value="Add new Recipe" class="btn btn-default" />
 }
+<br>
 <p>@Html.ActionLink("Show all Recipes", "Index")</p>
+</div>
