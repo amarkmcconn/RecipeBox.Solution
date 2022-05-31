@@ -29,11 +29,10 @@ namespace RecipeBox
         .AddDbContext<RecipeBoxContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
 
-      //new code
       services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<RecipeBoxContext>()
                 .AddDefaultTokenProviders();
-      //new code
+     
       services.Configure<IdentityOptions>(options =>
       {
           options.Password.RequireDigit = false;
