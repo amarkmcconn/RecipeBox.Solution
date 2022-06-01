@@ -18,6 +18,9 @@
 
 ## Description ✅
 
+![Alt text](/RecipeBox/wwwroot/img/Picture1.jpg)
+
+
 This an MVC application that allows users to keep track of recipes. Here are some user stories that is application achieves:
 
 * As a user, I want to add a recipe with ingredients and instructions, so I remember how to prepare my favorite dishes.
