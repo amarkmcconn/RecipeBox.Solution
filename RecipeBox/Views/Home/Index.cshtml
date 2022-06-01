@@ -1,7 +1,12 @@
+
 <div class="container">
-  <h1><a href="https://fontmeme.com/the-planet-crafter-font/"><img src="https://fontmeme.com/permalink/220601/6641ca1a50b108a30c77cf1a4d95a638.png" alt="the-planet-crafter-font" border="0"></a></h1>
-  <img class="align-center" src=img/closedbox.jpg>
-  <p>@Html.ActionLink("See all Recipes", "Index", "Recipes")</p> 
-  <p>@Html.ActionLink("See all Tags", "Index", "Tags")</p>
-  <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+  <h1><a href="https://fontmeme.com/the-planet-crafter-font/"><img id="centeredImage" src="https://fontmeme.com/permalink/220601/6641ca1a50b108a30c77cf1a4d95a638.png" alt="the-planet-crafter-font" border="0"></a></h1>
+  <img id="centeredImage" src=img/closedbox.jpg>
+  <table id="table">
+    <tr>
+      <td>@Html.ActionLink("See all Recipes", "Index", "Recipes", null, new {@class = "myCssClass"})</td> 
+      <td>@Html.ActionLink("See all Tags", "Index", "Tags", null, new {@class = "myCssClass"})</td>
+      <td>@Html.ActionLink("Create an account", "Index", "Account", null, new {@class = "myCssClass"})</td>
+    </tr>
+  </table>
 </div>
