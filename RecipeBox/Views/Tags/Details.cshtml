@@ -19,8 +19,11 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.TagId })</p>
-
-<p>@Html.ActionLink("Back to Tags", "Index")</p>
-<p>@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId })</p>
-<p>@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</p>
+<table id="table">
+  <tr>
+    <td>@Html.ActionLink("Add a Recipe", "AddRecipe", new {id = Model.TagId}, new {@class = "myCssClass"})</td>
+    <td>@Html.ActionLink("Back to Tags", "Index", null, null, new {@class = "myCssClass"})</td>
+    <td>@Html.ActionLink("Edit Tag", "Edit", new {id = Model.TagId }, new {@class = "myCssClass"})</td>
+    <td>@Html.ActionLink("Delete Tag", "Delete", new {id = Model.TagId }, new {@class = "myCssClass"})</td>
+  </tr>
+</table>

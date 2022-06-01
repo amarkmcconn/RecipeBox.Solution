@@ -1,10 +1,15 @@
 @model RecipeBox.Models.Tag
 
-<h4>Add a new Tag</h4>
+<div class="container">
+<h3>Add a new Tag</h3>
+<img id="centeredImage" src='~/img/tag.jpg'><br>
+<div id="table">
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name, new { required = "required" })
   <input type="submit" value="Add new Tag" />
 }
-<p>@Html.ActionLink("Show all tags", "Index")</p>
+</div>
+<p>@Html.ActionLink("Show all tags", "Index", null, null, new {@class = "myCssClass"})</p>
+</div>

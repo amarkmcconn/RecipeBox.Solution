@@ -9,7 +9,7 @@ using RecipeBox.Models;
 namespace RecipeBox.Migrations
 {
     [DbContext(typeof(RecipeBoxContext))]
-    [Migration("20220531220812_Initial")]
+    [Migration("20220601212826_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,21 +238,15 @@ namespace RecipeBox.Migrations
 
             modelBuilder.Entity("RecipeBox.Models.RecipeTag", b =>
                 {
-                    b.Property<int>("RecipeTagId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("TagId")
                         .HasColumnType("int");
 
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RecipeTagId");
+                    b.HasKey("TagId", "RecipeId");
 
                     b.HasIndex("RecipeId");
-
-                    b.HasIndex("TagId");
 
                     b.ToTable("RecipeTag");
                 });

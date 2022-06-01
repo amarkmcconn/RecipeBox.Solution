@@ -236,21 +236,15 @@ namespace RecipeBox.Migrations
 
             modelBuilder.Entity("RecipeBox.Models.RecipeTag", b =>
                 {
-                    b.Property<int>("RecipeTagId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("TagId")
                         .HasColumnType("int");
 
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RecipeTagId");
+                    b.HasKey("TagId", "RecipeId");
 
                     b.HasIndex("RecipeId");
-
-                    b.HasIndex("TagId");
 
                     b.ToTable("RecipeTag");
                 });

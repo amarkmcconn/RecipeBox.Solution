@@ -192,14 +192,12 @@ namespace RecipeBox.Migrations
                 name: "RecipeTag",
                 columns: table => new
                 {
-                    RecipeTagId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     RecipeId = table.Column<int>(type: "int", nullable: false),
                     TagId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecipeTag", x => x.RecipeTagId);
+                    table.PrimaryKey("PK_RecipeTag", x => new { x.TagId, x.RecipeId });
                     table.ForeignKey(
                         name: "FK_RecipeTag_Recipes_RecipeId",
                         column: x => x.RecipeId,
@@ -260,11 +258,6 @@ namespace RecipeBox.Migrations
                 name: "IX_RecipeTag_RecipeId",
                 table: "RecipeTag",
                 column: "RecipeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RecipeTag_TagId",
-                table: "RecipeTag",
-                column: "TagId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

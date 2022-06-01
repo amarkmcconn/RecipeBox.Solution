@@ -1,26 +1,28 @@
 @model RecipeBox.Models.Recipe
 
+<div class="container">
 <h2>Edit</h2>
 
 <h4>Edit this Recipe: @Html.DisplayFor(model => model.Name)</h4>
+    <div id="table">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(model => model.RecipeId)
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.RecipeId)
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)<br>
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+            @Html.LabelFor(model => model.Ingredients)
+            @Html.EditorFor(model => model.Ingredients, new {htmlAttributes = new {@class = "form-control"}})<br>
 
-    @Html.LabelFor(model => model.Ingredients)
-    @Html.EditorFor(model => model.Ingredients)
+            @Html.LabelFor(model => model.Instructions)
+            @Html.EditorFor(model => model.Instructions, new {htmlAttributes = new {@class = "form-control"}})<br>
 
-    @Html.LabelFor(model => model.Instructions)
-    @Html.EditorFor(model => model.Instructions)
+            @* @Html.Label("Select Tag")
+            @Html.DropDownList("TagId") *@
 
-    @Html.Label("Select Tag")
-    @Html.DropDownList("TagId")
-
-    <input type="submit" value="Save" />
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
+            <input type="submit" value="Save" />
+        }
+    </div>
+<p>@Html.ActionLink("Back to list", "Index", null, null, new{@class = "myCssClass"})</p>
+</div>

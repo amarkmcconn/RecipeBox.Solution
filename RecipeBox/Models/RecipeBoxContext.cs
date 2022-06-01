@@ -15,5 +15,11 @@ namespace RecipeBox.Models
     {
       optionsBuilder.UseLazyLoadingProxies();
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<RecipeTag>()
+            .HasKey(c => new { c.TagId, c.RecipeId});
+    }
   }
 }

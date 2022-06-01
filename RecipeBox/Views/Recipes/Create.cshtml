@@ -2,23 +2,25 @@
 
 <div class="container">
 <h4>Add a new Recipe</h4>
+<img id="centeredImage" src='~/img/recipeone.gif'><br>
+    <div id="table">
+        @using (Html.BeginForm())
+        {
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { required = "required" })<br>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name, new { required = "required" })<br>
+            <br>@Html.LabelFor(model => model.Ingredients)
+            @Html.TextAreaFor(model => model.Ingredients, new { required = "required", @class = "form-control"  })<br>
 
-    <br>@Html.LabelFor(model => model.Ingredients)
-    @Html.TextAreaFor(model => model.Ingredients, new { required = "required", @class = "form-control"  })<br>
+            <br>@Html.LabelFor(model => model.Instructions)
+            @Html.TextAreaFor(model => model.Instructions, new { required = "required", @class = "form-control" })<br>
 
-    <br>@Html.LabelFor(model => model.Instructions)
-    @Html.TextAreaFor(model => model.Instructions, new { required = "required", @class = "form-control" })<br>
+            <br>@Html.Label("Select Tag")
+            @Html.DropDownList("TagId")<br>
 
-    <br>@Html.Label("Select Tag")
-    @Html.DropDownList("TagId")<br>
-
-    <br><input type="submit" value="Add new Recipe" class="btn btn-default" />
-}
+            <br><input type="submit" value="Add new Recipe" class="myCssClass" />   
+        }
+    </div>
 <br>
-<p>@Html.ActionLink("Show all Recipes", "Index")</p>
+<p>@Html.ActionLink("Show all Recipes", "Index", null, null, new {@class = "myCssClass"})</p>
 </div>

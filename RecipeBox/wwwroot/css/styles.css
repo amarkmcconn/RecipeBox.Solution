@@ -4,6 +4,12 @@ textarea.form-control {
   resize: both;
 }
 
+.form-control {
+  height: 150px;
+  margin: 0px;
+  resize: both;
+}
+
 #centeredImage {
   display: block;
   width: 400px;
@@ -60,7 +66,13 @@ ul {
   justify-content: center;
 }
 
-h1, h3 {
+h1, h2, h3, h4 {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+
+p {
   display: flex;
   gap: 100px;
   justify-content: center;
